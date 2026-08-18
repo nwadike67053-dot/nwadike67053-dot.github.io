@@ -133,7 +133,16 @@ nav {
   margin-bottom: 48px;
   padding: 16px 24px;
   background: var(--partColor);
-  border: 1px solid #e0e0e0;
+  border: 0.33rem solid #ddd3e6;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(0.5dvh);
+    box-shadow: 0 1.5rem 0 0.75rem rgba(4, 1, 17, 0.3);
+  }
 
   h1 {
     margin: 0;
@@ -164,8 +173,66 @@ nav {
     color 0.25s ease;
 
   &:hover {
-    background: #000;
-    text-decoration: underline;
-    color: var(--partColorHov);
+    background: rgb(187, 180, 204);
+    font-weight: bold;
+    color: #010320;
+  }
+}
+
+/* portfolio */
+
+content h1 {
+  color: black;
+}
+
+#portfolio {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  li {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 2fr;
+    margin: 0 1vw 0 1vw;
+  }
+
+  a {
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    text-decoration: none;
+
+    color: #444;
+    padding: 16px 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background: #e3d7ee;
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s ease;
+
+    &:hover {
+      background: #271f2c;
+      color: #ccc7cf;
+      transform: translateX(4px);
+    }
+  }
+
+  &::after {
+    content: "->";
+    font-size: 0.85rem;
+    opacity: 0.4;
+    transition: opacity 0.25s ease;
+    white-space: nowrap;
+  }
+
+  &:hover::after {
+    opacity: 1;
   }
 }
