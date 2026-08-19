@@ -58,8 +58,8 @@ h2 {
   font-size: clamp(4rem, 10vw, 7rem);
   font-weight: 900;
   letter-spacing: 0em;
-  color: #453057;
-  -webkit-text-stroke: rgba(68, 35, 94, 0.5) 0.25rem;
+  color: #312742;
+  -webkit-text-stroke: rgba(230, 214, 243, 0.15) 0.25rem;
   gap: 0;
 }
 
