@@ -21,8 +21,7 @@
     }
 
     .board {
-      height: 50%;
-      width: 50%;
+      height: 100vh;
       padding: 0;
       margin: 0;
       background-image: url(https://space.blog.gov.uk/wp-content/uploads/sites/129/2021/04/NLCs_Malham_.jpg);
@@ -90,7 +89,7 @@
         if (randNum === 0) {
           randomizeNum()
         }
-        else if (randNum >= max - 71) {
+        else if (randNum >= max) {
           randomizeNum()
         }
 
@@ -99,20 +98,28 @@
         }
       }
 
+      function getRandColor() {
+        var a = randomizeNum(0, 256);
+        var b = randomizeNum(0, 256);
+        var c = randomizeNum(0, 256);
+        colorStr = String("rgb(" + a + ", " + b + ", " + c + ")")
+      }
+
+
       /**
        * This Function will be called 20 times/second.
        * Each time it is called, it should move the Box to a new location.
        * If the box drifts off the screen, turn it around!
        */
       function update() {
-        if (positionX >= boardWidth - 71) {
+        if (positionX >= boardWidth - 72) {
           speed *= -1;
         }
         else if (positionX <= -1) {
           speed *= -1
         }
 
-        if (positionY >= boardHeight - 71) {
+        if (positionY >= boardHeight - 72) {
           speedY *= -1
         }
         else if (positionY <= -1) {
@@ -122,6 +129,7 @@
         positionX += speed
         positionY += speedY
         moveBoxTo(positionX, positionY);
+
       }
 
       /**
@@ -132,19 +140,22 @@
        * - move the box to the left side of the screen.
        */
       function handleBoxClick() {
-        positionX = randomizeNum(0, boardWidth);
-        positionY = randomizeNum(0, boardHeight);
+        positionX = randomizeNum(0, boardWidth - 71);
+        positionY = randomizeNum(0, boardHeight - 71);
         points++
         if (points % 3 === 0) {
           speed = 1
           speedY = 1
           constant++
+          colorStr = "rgb(100, 100, 100)"
         }
         else {
           speed = constant * points + 0
           speedY = constant * points + 0
+          getRandColor();
         }
 
+        box.css("background-color", colorStr);
         changeBoxText(points)
       }
 
