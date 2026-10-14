@@ -385,7 +385,7 @@ var Gamification = (function () {
     var distance = Math.sqrt(dx * dx + dy * dy);
 
     // Account for scaling in collision detection
-    // removed circle.ScaleX to fix abnormally large hitboxes
+    // removed circle.ScaleX || 10 to fix abnormally large hitboxes
     var radius1 = circle1.radius || 10;
     var radius2 = circle2.radius || 10;
 
