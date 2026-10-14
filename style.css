@@ -185,9 +185,9 @@ content h1 {
   color: black;
 }
 
-content h3,
-h4 {
-  background-color: rgba(70, 30, 150, 0.5);
+.content h3,
+.content h4 {
+  background-color: rgba(200, 190, 210, 0.5);
 }
 
 #portfolio {
