@@ -77,11 +77,11 @@ $(document).ready(function () {
     */
 
   function handleBad(data, repeat) {
+    resetDisplay();
     repeat++;
-    setBackgroundWithMixed(data, repeat);
-    /*resetDisplay();
     var num = dataShapes.length - 1;
-    currentIndex = Math.floor(Math.random() * num);*/
+    currentIndex = Math.floor(Math.random() * num);
+    setBackgroundWithMixed(data, repeat);
     animationDetails.displayType = 3;
   }
   /////////////////////////////////////////////////
