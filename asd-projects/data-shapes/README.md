@@ -90,7 +90,6 @@ On the preview page, you’ll see:
 - A box displaying shape information
 - The current index of the shape being shown
 - Five buttons:
-
   - **Prev:** Moves to the previous shape in the array and resets the display
   - **Next:** Moves to the next shape in the array and resets the display
   - **Display:** Shows a static image of the shape
@@ -120,7 +119,6 @@ At this point, none of the **Display** buttons will work. You'll add this functi
 ### **Step-by-Step Instructions**
 
 1. **Create a new variable** called `shape` and assign it an object with the following properties:
-
    - key: `color`, value: `"blue"`
    - key: `shape`, value: `"circle"`
    - key: `repeat`, value: `3`
@@ -403,7 +401,6 @@ Add a bit of randomness to your program by updating the `handleBad` function suc
 ### Step-by-Step Instructions
 
 1. **Open the terminal in your codespace**
-
    - If the terminal isn’t visible, click the **Hamburger Menu > Terminal > New Terminal**.
 
 2. **Enter the following commands one by one** in the terminal, pressing enter after each command to run it:
