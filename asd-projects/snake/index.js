@@ -37,7 +37,7 @@ var activeKey;
 var colors = ["red", "orange", "yellow", "green", "blue", "purple"];
 var colorIndex = Math.floor(Math.random() * colors.length);
 function changeColorIndex() {
-  if (colorIndex === colors.length) {
+  if (colorIndex === colors.length - 1) {
     colorIndex = 0;
   } else {
     colorIndex++;
