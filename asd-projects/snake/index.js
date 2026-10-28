@@ -39,7 +39,9 @@ var colorIndex = Math.floor(Math.random() * colors.length);
 function changeColorIndex() {
   if (colorIndex === colors.length) {
     colorIndex = 0;
-  } else colorIndex++;
+  } else {
+    colorIndex++;
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -55,16 +57,16 @@ init();
 function init() {
   // TODO 5, Part 3**: initialize the snake
   snake.body = []; // Start with an empty body
-  makeSnakeSquare(10, 10); // Create the first square in the middle of the board
-  makeSnakeSquare(10, 9); // Create a second square to the left of the first
-  makeSnakeSquare(10, 8); // Create a third square to the left of the second
+  for (i = 10; i > 7; i -= 1) {
+    makeSnakeSquare(10, i);
+  }
   snake.head = snake.body[0]; // Mark the first segment as the head
 
   // TODO 4, Part 3: initialize the apple
   makeApple();
 
   // TODO 6, Part 1: Initialize the interval
-  updateInterval = setInterval(update, 75);
+  updateInterval = setInterval(update, 175);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -218,28 +220,28 @@ function hasCollidedWithSnake() {
     HINT: Each part of the snake's body is stored in the snake.body Array. The
     head and each part of the snake's body also knows its own row and column.
   */
-  for (var i = 1; i < snake.body.length; i++) {
-    /*  for (var j = 1; j < snake.body.length; j++) {
+  for (var i = 1; i < snake.body.length - 1; i++) {
+    /* for (var j = 1; j < snake.body.length - 1; j++) {
       if (
         i !== j &&
         snake.body[i].row === snake.body[j].row &&
         snake.body[i].column === snake.body[j].column
       ) {
-        return true;
+        console.log("collision");
+        return true; // why is this never true
       } else {
+        console.log("false");
         return false;
-      } */
+      } 
+}*/
     if (
-      snake.head.column == snake.body[i].column &&
-      snake.head.row == snake.body[i].row
+      snake.head.row === snake.body[i].row &&
+      snake.head.column === snake.body[i].column
     ) {
       return true;
-      console.log("um");
-    } else {
-      return false;
-      console.log("false");
     }
-  }
+  } // return killing a loop too early
+  return false;
 }
 
 function endGame() {
