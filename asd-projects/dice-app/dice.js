@@ -9,19 +9,40 @@ $(document).ready(function () {
     .css("left", 50)
     .appendTo("#die");
 
+  $("<div>")
+    .css("height", 15)
+    .css("width", 15)
+    .css("background-color", "black")
+    .css("position", "absolute")
+    .css("top", 160)
+    .css("left", 50)
+    .appendTo("#die2");
+
   function makeDot(top, left, elementID) {
-    $("<div>")
-      .css("height", 15)
-      .css("width", 15)
-      .css("background-color", "black")
-      .css("position", "absolute")
-      .css("top", top)
-      .css("left", left)
-      .appendTo(elementID);
+    if (elementID === "#die2") {
+      $("<div>")
+        .css("height", 15)
+        .css("width", 15)
+        .css("background-color", "black")
+        .css("position", "absolute")
+        .css("top", top + 110)
+        .css("left", left)
+        .appendTo(elementID);
+    } else {
+      $("<div>")
+        .css("height", 15)
+        .css("width", 15)
+        .css("background-color", "black")
+        .css("position", "absolute")
+        .css("top", top)
+        .css("left", left)
+        .appendTo(elementID);
+    }
   }
 
+  var randomNum;
   function rollDie(dieID) {
-    var randomNum = Math.ceil(Math.random() * 6);
+    randomNum = Math.ceil(Math.random() * 6);
     $(dieID).empty();
     // makeDot(50, 65, "#die");
     if (randomNum === 1) {
@@ -56,10 +77,11 @@ $(document).ready(function () {
   }
 
   function handleClick() {
+    rollDie("#die2");
     rollDie("#die");
     // position absolute is so,,,,,,,,,,,,,,
-    console.log("rolled");
   }
 
   $("#die").on("click", handleClick);
+  $("#die2").on("click", handleClick);
 });
