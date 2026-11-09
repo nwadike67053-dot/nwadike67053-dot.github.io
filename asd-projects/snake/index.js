@@ -44,6 +44,8 @@ function changeColorIndex() {
   }
 }
 
+var isReversed = false;
+
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// GAME SETUP //////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -109,11 +111,10 @@ function checkForNewDirection(event) {
   } else if (activeKey === KEY.DOWN) {
     snake.head.direction = "down";
   }
-
-  // FILL IN THE REST
-
-  // console.log(snake.head.direction); // uncomment me!
 }
+// FILL IN THE REST
+
+// console.log(snake.head.direction); // uncomment me!
 
 function moveSnake() {
   /* 
@@ -210,6 +211,7 @@ function handleAppleCollision() {
   var column = snake.tail.column;
 
   makeSnakeSquare(row, column);
+  ReverseReverse();
 }
 
 function hasCollidedWithSnake() {
@@ -248,7 +250,7 @@ function endGame() {
   // stop update function from running
   clearInterval(updateInterval);
   started = false; // reset the started variable
-
+  isReversed = false;
   // clear board of all elements
   board.empty();
 
@@ -332,11 +334,12 @@ function handleKeyDown(event) {
   // console.log(activeKey);
 
   // If a valid direction key is pressed, start the game
+  
   if (
-    event.which === KEY.LEFT ||
-    event.which === KEY.RIGHT ||
-    event.which === KEY.UP ||
-    event.which === KEY.DOWN
+    activeKey === KEY.LEFT ||
+    activeKey === KEY.RIGHT ||
+    activeKey === KEY.UP ||
+    activeKey === KEY.DOWN
   ) {
     started = true; // the game starts when the first key is pressed
   }
@@ -398,4 +401,14 @@ function calculateHighScore() {
   }
 
   return highScore;
+}
+
+function ReverseReverse() {
+  if (score % 2 === 0) {
+    if (isReversed === true) {
+      isReversed = false;
+    } else {
+      isReversed = true; // i should not be having to think this hard about something this simple oh my god i need to go lay down and try again the next day
+    }
+  }
 }
