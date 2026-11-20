@@ -1,3 +1,9 @@
+body {
+  text-align: center;
+  background-image: url("https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Andiast-Breil-Brigels._24-09-2025._%28d.j.b.%29_08.jpg/500px-Andiast-Breil-Brigels._24-09-2025._%28d.j.b.%29_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=parser&utm_content=thumbnail");
+  background-size: cover;
+}
+
 #match-grid {
   display: flex;
   flex-flow: row wrap;
@@ -19,12 +25,6 @@
 }
 #match-grid .card-container.matched > .card_back {
   box-shadow: inset 0 0 5px 5px forestgreen;
-}
-
-body {
-  text-align: center;
-  background-image: url("images/autumn.jpg");
-  background-size: 50%;
 }
 
 h1 {
