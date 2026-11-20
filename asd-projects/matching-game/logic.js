@@ -12,7 +12,7 @@ function start() {
   $("#match-grid").html("");
   allImages = [];
   shuffledImages = [];
-  for (var i = 0; i < 9; i++) {
+  for (var i = 0; i < 18; i++) {
     randomizeImages();
   }
   shuffledImages = shuffleArray(allImages);
